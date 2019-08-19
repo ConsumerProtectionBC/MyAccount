@@ -1,5 +1,5 @@
 ﻿angular.module('portal.pages.licenses.financialReview')
-    .controller('LicensesFinancialReviewController', function ($scope, $stateParams, license, 
+    .controller('LicensesFinancialReviewController', function ($scope, $state, $stateParams, license, 
         financialReviews, lodash, uibDateParser, Confirm, $uibModal, FinancialReviewDefinitionService) {
         'use strict';
 
@@ -90,6 +90,10 @@
                     { showCancel: false });
                 });
         };
+
+        ctrl.backToLicenses = function () {
+            $state.go('licenses');
+        }
 
         ctrl.checkForm = function() {
             var postData = angular.copy(ctrl.review);
